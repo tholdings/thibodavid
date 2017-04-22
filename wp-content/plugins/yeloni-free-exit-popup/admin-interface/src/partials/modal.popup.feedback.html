@@ -1,0 +1,44 @@
+<!--not used-->
+<div  class="yel-after-popup-feedback">
+    
+    <div class="">
+        
+        <formly-form fields="configFields.feedback" model="feedback"></formly-form>
+        
+        <center ng-show="feedbackComplete(feedback)">
+            <button type="button" class="btn btn-primary" style="margin-top:5px" ng-click="sendFeedback(feedback)" >Submit</button>
+        </center>
+        
+        <center ng-show="showClose(feedback)">
+            <button type="button" class="btn btn-default pull-right" style="margin-top:5px"  ng-click="sendFeedback(feedback)">Close</button>
+        
+        </center>
+    
+    </div>
+
+</div>
+<!--
+<json-formatter json="configFields.feedback"></json-formatter>
+ng-init="C.createNewEvent('seen_feedback_modal')"
+-->
+<!--
+<div  class="row yel-after-popup-feedback">
+    
+    <div class="col-md-6 col-md-offset-3">
+        
+        <formly-form fields="configFields.feedback" model="feedback"></formly-form>
+        
+        <center ng-show="feedbackComplete(feedback)">
+            <button type="button" class="btn btn-primary" style="margin-top:5px" ng-click="sendFeedback(feedback)" >Submit</button>
+        </center>
+        
+        <center ng-show="showClose(feedback)">
+            <button type="button" class="btn btn-default pull-right" style="margin-top:5px"  ng-click="sendFeedback(feedback)">Close</button>
+        
+        </center>
+    
+    </div>
+
+</div>
+
+-->

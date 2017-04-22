@@ -1,0 +1,11 @@
+<!--not used-->
+<div class="row" ng-init="W.current.state = 'launch';email_reason()">
+    <div class="col-md-6 col-md-offset-3">
+        <formly-form fields="configFields.statistic" model="statistics"></formly-form>
+        <div>
+            <button type="submit" class="btn btn-default" ng-click="next()" ng-show="statistics.statistic.mode == 'no'">Continue</button>
+            <button type="submit" class="btn btn-default" ng-click="submit(statistics)" ng-show="statistics.statistic.mode == 'yes'">Continue</button>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+</div>

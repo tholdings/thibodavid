@@ -1,0 +1,19 @@
+<div class="" ng-hide="SS.setup().package_id!='default'">
+
+    <div class="col-md-12 yel-premium-feature-wrapper">
+        <pitch-pay feature="feature" ng-repeat="feature in R.features | orderBy:'order'" class="col-md-6 col-xs-6 yel-single-extension"></pitch-pay>
+    </div>
+
+    <div style="clear:both; margin-top:30px;"></div>
+    <div class="col-md-12 form-group" style="margin-left:15px;">
+        <label for="inputlg">Activation Key (only for multi-website licenses)</label>
+        <table width="50%">
+            <tr>
+                <td width="70%"><input style="width:98%; height:36px; font-size:14px;" class="form-control input-lg" id="inputlg" type="text" ng-model="key" placeholder="enter key here"></td>
+                <td width="30%"><button type="button" class="btn btn-primary btn-block" ng-click="activate(key)">Activate</button></td>
+            </tr>
+        </table>
+        <div id="yel-activation-status">
+        </div>
+    </div>
+</div>

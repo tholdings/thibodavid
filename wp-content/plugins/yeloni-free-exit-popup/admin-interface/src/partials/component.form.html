@@ -1,0 +1,16 @@
+<div class="yel-email-select-modal">
+
+    <formly-form model="component.values" fields="componentFields"></formly-form>
+  <!--   <center>
+        <div email-connector provider="{{component.values.provider}}" ng-show="tag== 'emailSubscription' && component.values.provider.indexOf('Yeloni')<0" email-config="component.values" email-fields="componentFields"></div>
+    </center> -->
+
+    <center ng-show="form_in_modal">
+        <button class="btn btn-primary" ng-click="savePrimary()" ng-show="primaryValid()">Save</button>
+    </center>
+
+</div>
+
+<!--
+{{component.values}}
+-->

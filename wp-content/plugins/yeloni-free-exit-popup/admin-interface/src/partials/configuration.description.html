@@ -1,0 +1,24 @@
+<!--not used-->
+<style type="text/css">
+    .yel-desc-light-text
+    {
+        font-weight: bold;
+    }
+</style>
+<div ng-switch="now.editing" ng-hide="S.isPremium()">
+    <div class="yel-desc-light-text">
+        <div class="yel-desc-data">
+
+            <div class="strong">
+            <ul  ng-click="U.upgrade(R.packages.smartUX)">
+                <li ng-switch-when="when">These are Premium Features</li>
+            </ul>
+            <ul ng-switch-when="where" ng-click="U.upgrade(R.packages.smartUX)">
+                <li>These are Premium Features</li>
+            </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>

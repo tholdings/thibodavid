@@ -1,0 +1,116 @@
+<div class="yel-payment-popup-wrapper">
+    <div class="">
+        <div class="yel-prm-heading">Upgrade to the Premium Plan <span ng-if="package.trial>0">({{package.trial}} day Free Trial)</span></div>
+        <div class="yel-sup-subheading">Do you prefer a monthly subscription or annual?</div>
+        <div>
+            <small class="text-muted">
+                Pay using Paypal or Credit Card
+            </small>
+            <div>
+                <div class="yel-payment-type-block">
+                    <input id="month-d2" name="view-d" type="radio" ng-model="frequency" value="Monthly">
+                    <label for="month-d2" onclick="">Monthly &#09;( {{package.monthly_price}}$ per month )</label>
+                </div>
+                <div class="yel-payment-type-block">
+                    <input id="month-d3" name="view-d" type="radio" ng-model="frequency" value="Annual">
+                    <label for="month-d3" onclick="">Annual &#09;( {{package.annual_price}}$ per year )</label>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+        <div class="" ng-show="frequency">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="GBW5YP3DPH3AA">
+                <table style="display:none">
+                    <tr>
+                        <td>
+                            <input type="hidden" name="on0" value="Billing Cycle">Billing Cycle</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="os0" ng-model="package_frequency">
+                                <option value="smartUX Monthly"></option>
+                                <option value="smartUX Annual"></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="hidden" name="on1" value="Account ID">Account ID</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="os1" maxlength="200" ng-model="accountId">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="hidden" name="on2" value="Encoded">Encoded</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="os2" value="eyJkb21haW4iOiJ5ZWxvbmkuY29tIn0=">
+                        </td>
+                    </tr>
+                </table>
+                <div class="yel-monthly-div">
+                    <div ng-show="frequency=='Monthly'">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+                    </div>
+                </div>
+                <div class="yel-annual-div">
+                    <div ng-show="frequency=='Annual'">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+                    </div>
+                </div>
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+        </div>
+        </form>
+        <!--
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="{{button}}">
+            <table >
+                <tr>
+                    <td>
+                        <input type="hidden" name="on0" value="Billing Cycle">Billing Cycle</td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="os0" ng-model="package_frequency">
+                            <option value="smartUX Monthly">smartUX Monthly : $1.00 USD - monthly</option>
+                            <option value="smartUX Annual">smartUX Annual : $1.00 USD - yearly</option>
+                            <option value="smartUX Daily">smartUX Daily : $1.00 USD - daily</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="hidden" name="on1" value="Domain Name">Domain Name</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="os1" maxlength="200" value="yeloni.com">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="hidden" name="on2" value="Account ID">Account ID</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="os2" maxlength="200" ng-model="accountId">
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    -->
+    </div>
+</div>
+<!--frequency - {{frequency}}-->

@@ -1,0 +1,25 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="closeModal()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{title}}</h4>
+    </div>
+    <div class="modal-body">
+        <p>{{message}}&hellip;</p>
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Email address">
+                <span class="input-group-btn">
+                  <button class = "btn btn-primary" type = "button" ng-click="gotoUpgrade()">Start my free trial
+                  </button>
+               </span>
+            </div>
+            <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+    <div class="modal-footer align-left" ng-hide="hideButtons">
+    <a class="text-muted pull-left span6 offset3" style="margin-right:10px;" ng-click="gotoUpgrade()"><small>What's Premium?</small></a>
+        <a class="text-muted pull-left" ng-click="closeModal()"><small>Continue with Lite Version</small></a>
+    </div>
+</div>
+<!-- /.modal-content -->

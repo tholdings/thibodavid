@@ -1,0 +1,42 @@
+<!--not used-->
+<div class="yel-admin-wrapper-prem" ng-if="R.setup_initialized" ng-hide="R.readyToSave && !hideActions">
+    <div class="yel-prm-heading" ng-hide="hideActions">Going Premium is a good choice</div>
+    
+    <table class="table yel-prem-table table-responsive">
+        <thead>
+            <tr>
+                <th>Features</th>
+                <th ng-repeat="(package_id, package) in R.packages" class="yel-center">{{package.name}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="(key, feature) in R.features">
+                <th style="font-weight:normal"><a class="btn btn-link" ng-click="showInModal(feature.description)" >{{feature.title}}</a></th>
+                <td ng-repeat="(package_id, package) in R.packages" class="yel-center yel-package-column">
+                    <i style="color:#36BAA0" class="glyphicon text-info" ng-class="{'glyphicon-ok':(package.features.indexOf(key) >=0),'glyphicon-remove':(package.features.indexOf(key) < 0)}"></i>
+                </td>
+            </tr>
+            <tr>
+                <th>Monthly Pricing</th>
+                <td ng-repeat="(package_id, package) in R.packages" class="yel-center">
+                    <span ng-show="package.monthly_price > 0">{{package.monthly_price}}$ per month</span>
+                    <span ng-show="package.monthly_price == 0">Free</span>
+                </td>
+            </tr>
+            <tr>
+                <th>Annual Pricing</th>
+                <td ng-repeat="(package_id, package) in R.packages"  class="yel-center">
+                    <span ng-show="package.annual_price > 0">{{package.annual_price}}$ per year</span>
+                    <span ng-show="package.annual_price == 0">Free</span>
+                </td>
+            </tr>
+            <tr ng-hide="hideActions">
+                <th></th>
+                <td ng-repeat="(package_id, package) in R.packages"  class="yel-center">
+                    <button class="btn btn-default disabled" ng-show="S.package_id == package.label">Current Plan</button>
+                    <button class="btn btn-primary" ng-hide="R.packages[S.package_id].level >= package.level" ng-click="upgrade(package)">Start my {{package.trial}} day <br> Free Trial</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

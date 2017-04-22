@@ -1,0 +1,94 @@
+/*
+Theme Name: Betheme
+Author: Muffin group
+Description: The biggest WordPress Theme ever
+Theme URI: http://themes.muffingroup.com/betheme
+Author URI: http://muffingroup.com
+License: Themeforest Split Licence
+License URI: -
+Version: 12.8
+
+All css files are placed in /css/ folder
+*/
+
+.press-list-wrapper{float: left;
+    float: left;
+    width: 71%;
+    padding: 1%;
+}
+
+.Right-side-section{
+width: 25%;
+    float: right;
+    padding: 1%;
+}
+.tab,.video-blog-list h3{display:none;}
+.tab.in{display:block;}
+
+.press-list-wrapper .video-blog-list li{
+width:48%;
+float:left;
+margin:1%;
+}
+.press-list-wrapper .video-blog-list li:first-child iframe,.press-list-wrapper .video-blog-list li:first-child{
+     width: 100%!important;
+    height: 463px!important;
+    margin: 0;
+}
+.press-list-wrapper .video-blog-list li iframe{
+height:250px;
+}
+.Right-side-section iframe{
+height:150px!important;
+width:100%;
+}
+.Right-side-section .tab-nav li{
+    width: 45%;
+    float: left;
+    text-align: center;
+    padding: 2%;
+   background: #779b06;
+    color: #fff;
+    margin-bottom: 7%;
+    margin-top: 6%;
+    font-size: 19px;
+    
+    margin-left: 0;
+}
+.Right-side-section .tab-nav li a:hover,.widget_nav_menu ul li a:hover{
+text-decoration:none;
+}
+.Right-side-section .tab-nav li:hover{
+background: #536C04;
+}
+.Right-side-section .tab-nav li:last-child{
+border-left: 3px solid #fff;
+}
+.Right-side-section .tab-nav li a{
+color: #fff;
+}
+.Right-side-section .tab-nav{
+width: 100%;
+    overflow: hidden;
+}
+.other-threelayout{
+      max-width: 87%;
+    margin: 0 auto;
+    /* padding: 1%; */
+    overflow: hidden;
+}
+.other-threelayout li{
+width:31.333%;
+float:left;
+    margin: 0  1% 1%;
+}
+.other-threelayout li:first-child{
+display:none!important;
+}
+.other-threelayout li iframe{
+height:200px;
+}
+.video-blog-list-other{
+width: 100%;
+    overflow: hidden;
+}

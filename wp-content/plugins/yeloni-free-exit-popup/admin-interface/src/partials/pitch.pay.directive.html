@@ -1,0 +1,46 @@
+<div>
+    <div class="yel-single-extension-data" id="yel-ext-{{feature.label}}-details">
+        <div class="yel-info-price-float">${{displayPriceForFeature(feature.label)}}/month</div>
+        <div class="yel-info-block">
+            <h3>{{feature.title}}</h3>
+            <div>
+                <p class="text-muted2"> {{feature.description}}</p>
+            </div>
+            <div style="color: #848484">In 6 month or annual payments</div>
+            <div ng-hide="SS.hasFeature(feature.label)">
+                <div class="yel-small-button-get" ng-click="showPaymentDetails(feature.label)">Activate</div>
+            </div>
+            <div ng-show="SS.hasFeature(feature.label)">
+                <div><span class="glyphicon glyphicon-ok" style="font-size: 20px;"></span> Addon Activated</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="yel-single-extension-payment-data" id="yel-ext-{{feature.label}}-payment">
+        <div class="yel-info-block">
+            <div class="yel-ext-close" ng-click="showAddonDetails(feature.label)">
+                X
+            </div>
+            <h3>{{feature.title}} - ${{displayPriceForFeature(feature.label)}}/month</h3>
+            <div ng-init="paymentDuration=12">
+                <div>Please choose a preferred duration</div>
+                <label><input type="radio" ng-model="paymentDuration" value="12"> ${{displayPriceForFeature(feature.label)*10}} annually</label>&nbsp;&nbsp;
+
+                <label><input type="radio" ng-model="paymentDuration" value="6"> ${{displayPriceForFeature(feature.label)*6}} for 6 months</label>
+            </div>
+            <div class="yel-paypals">
+                <div extension-paypal websiteid="{{website_id}}" feature='{{feature.label}}' price='{{priceForFeature(feature.label,12)}}' ng-show="paymentDuration==12"></div>
+                <div extension-paypal websiteid="{{website_id}}" feature='{{feature.label}}' price='{{priceForFeature(feature.label,6)}}' ng-show="paymentDuration==6"></div>
+            </div>
+            <div class="yel-new-referral" id="yel-referral-{{feature.label}}" ng-hide="isReferrerPresent()">
+                <div ng-init="showMe=false" ng-click="showMe=!showMe" style="cursor:pointer" class="text-muted">Do you have referral code? (optional)</div>
+                <div ng-show="showMe"><input type="text" ng-model="referrerCode" name="referrerCode" ng-value="referrerCode">&nbsp;<button class="yel-small-button" ng-click="addNewReferralCode(referrerCode, feature.label)">Apply</button></div>
+            </div>
+            <div class="yel-referral-status" id="yel-referral-status-{{feature.label}}">Referral code applied. Please proceed with the purchase.</div>
+
+        </div>
+    </div>
+</div>

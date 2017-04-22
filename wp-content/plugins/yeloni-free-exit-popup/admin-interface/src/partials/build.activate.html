@@ -1,0 +1,27 @@
+<!--not used-->
+<div ng-init="W.current.state = 'activate'" style="height:100vh">
+    <div class="col-md-6" style="text-align:left; margin-top:10px; margin-bottom:10px">
+        <div>
+            <formly-form fields="configFields.what" model="R.widget.configuration">
+            </formly-form>
+        </div>
+        <div style="margin-left:20px" ng-hide="R.widget.configuration.what.register || R.widget.configuration.what.existing_account">
+            What you get
+            <ul style="margin-left:20px">
+                <li type="square">
+                    Daily usage statistics of your popups
+                </li>
+                <li type="square">
+                    Save your settings on free cloud storage to restore in case of data loss
+                </li>
+            </ul>
+        </div>
+        <div style="margin-left:20px" ng-show="R.widget.configuration.what.register">
+            <formly-form fields="configFields.account" model="customer">
+            </formly-form>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <div class="col-md-6">&nbsp;</div>
+    <div style="clear:both"></div>
+</div>

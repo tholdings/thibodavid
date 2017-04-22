@@ -1,0 +1,19 @@
+<!--not used-->
+<div>
+    <div style="margin-top:10px">
+        <accordion close-others="oneAtATime">
+            <accordion-group ng-repeat="(tag, component) in widget.components" ng-init="componentFields = [];copy(component.fields,componentFields, component)" ng-click="clickedOn(component.tag)" is-open="isOpen[tag]" ng-class="{'yel-component':(tag == highlightedTag), 'yel-hide-theme':hideEmail(tag)}"
+                ng-mouseover="hoveredOn(component.tag)" ng-mouseout="hoveredOut(component.tag)">
+                <accordion-heading>
+                    <i class="pull-left glyphicon" ng-class="{'glyphicon-minus-sign': isOpen[tag], 'glyphicon-plus-sign': !isOpen[tag]}"></i> &nbsp
+                    <span ng-class="{'yel-bold':isOpen[tag]}">{{component.title}}</span>
+                </accordion-heading>
+                <div ng-include="componentFormPartial()"></div>
+            </accordion-group>
+        </accordion>
+    </div>
+</div>
+
+<!--
+<json-formatter json="widget"></json-formatter>
+-->

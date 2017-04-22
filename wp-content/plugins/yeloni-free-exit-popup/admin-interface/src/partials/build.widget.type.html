@@ -1,0 +1,28 @@
+<div class="yel-starter-wrapper" ng-init="show_premium = false; W.current.state = 'placement'">
+    <center>
+        <div class="yel-prm-heading">Choose a Position</div>
+        <div class="yel-sup-subheading">
+            Where would you like the widget to show?
+        </div>
+
+
+        <div class="yel-widgettype-wrapper grid-container">
+            <div class="yel-widgettype-box grid-35 push-15" 
+                ng-repeat="placement in R.widgettypes" 
+                ng-click="selectPlacement(placement)"
+                >
+                <div ng-init="countThemes(placement.name.slice(1), R.widget.goalType)"/>
+                <div class="yel-widgettype-icon">
+                    <div><img ng-src="{{R.basePath}}/images/placement-icons/{{placement.icon}}"/></div>
+                </div>
+                <!-- <div class="yel-widgettype-new" ng-show="placement.desc">{{placement.desc}}</div> -->
+                <div class="yel-widgettype-title">{{placement.label}} [ {{themeType_array[placement.name.slice(1)][R.widget.goalType]}} designs ]</div>
+                <div class="yel-widgettype-desc">{{placement.desc}}</div>
+            
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+
+    </center>
+</div>

@@ -1,0 +1,19 @@
+{
+    "scripts": [{
+        "base": "/scripts",
+        "items": ["yetience-client"]
+    }, {
+        "base": "/scripts/configuration",
+        "items": ["when", "where", "how", "whom", "close"]
+    }, {
+        "base": "/scripts/specific",
+        "items": ["email", "social", "redirect", "chat","back","actionButton"]
+    }],
+    "styles": [{
+        "base": "/styles",
+        "items": ["unsemantic-grid-responsive"]
+    }],
+    "directjs": ["/common/loader", "/wordpress/client-wordpress"],
+    "server": "http://localhost:3001",
+    "static": "http://localhost:3001"
+}

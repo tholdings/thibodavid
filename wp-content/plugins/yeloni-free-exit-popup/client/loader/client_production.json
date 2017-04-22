@@ -1,0 +1,10 @@
+{
+    "scripts": [],
+    "styles": [{
+        "base": "/dist",
+        "items": ["client.min"]
+    }],
+    "directjs": ["/common/loader", "/wordpress/client-wordpress", "/client/dist/client.min"],
+    "server": "https://theme.autience.com",
+    "static": "http://theme.autience.com"
+}

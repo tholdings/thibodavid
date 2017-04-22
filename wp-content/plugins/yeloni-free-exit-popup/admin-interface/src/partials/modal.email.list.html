@@ -1,0 +1,29 @@
+<div class="modal-content yel-email-show-modal" ng-show="current_page > 1 || sub.list.length> 0">
+
+    <div class="row  yel-email-show-modal">
+        Your subscribers:
+        <table border="1" width="100%">
+            <tr ng-repeat="subscriber in sub.list" ng-show="sub.list.length> 0">
+                <td width="20%">{{convertedTime(subscriber.timestamp)}}</td>
+                <td width="40%">{{subscriber.name}}</td>
+                <td width="40%">{{subscriber.email}}</td>
+            </tr>
+        </table>
+        <!-- <ul class="list-group" ng-repeat="subscriber in sub.list" style="margin:0px;" ng-show="sub.list.length> 0">
+            <li class="list-group-item">{{subscriber.name}}, {{subscriber.email}} <i class='pull-right text-muted'> on {{convertedTime(subscriber.timestamp)}}</i> </li>
+        </ul> -->
+        <span ng-show="subscriber.length == 0">Thats all</span>
+    </div>
+    <div class="row" style="padding-right:0px; text-align:right">
+        <div class="col-md-6 col-md-offset-6">
+            <button type="button" class="btn btn-sm" ng-disabled="current_page ==0" ng-click="next('previous')">Previous</button>
+            <!-- <span style="text-align:center">
+                {{(current_page*10)+1}} to {{(current_page*10)+sub.list.length}}
+            </span> -->
+            <button type="button" ng-click="next('next')" ng-disabled="sub.list.length < 10" class="btn btn-sm">Next</button>
+        </div>
+    </div>
+</div>
+<div class="modal-content  yel-email-show-modal" ng-show="current_page == 0 && sub.list.length== 0 && list_loaded == true">
+    You do not have any subscribers yet.
+</div>

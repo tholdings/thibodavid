@@ -1,0 +1,43 @@
+<div ng-init="W.current.state = 'integrate'">
+    <div class="col-xs-offset-3 col-md-offset-3 col-xs-6 col-md-6 yel-component-form" ng-hide="showEmail||notEmailTheme">
+        <!-- <H4>Integrate your Email Service</H4> -->
+        <div>
+            Would you like to send an email to new subscribers?<br> You could send something like
+            <ul class="yel-bullet-list">
+                <li>A discount code or a link to your visitors</li>
+                <li>A link to download an e-book or any other goodie</li>
+                <li>A special landing page only meant for subscribed vistors</li>
+                <li>A warm welcome note</li>
+            </ul>
+
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-disabled" style="margin-left: 30px" ng-click="enableWelcomeEmail()">Yes, I want to send an email</button>
+            <button type="button" class="btn btn-link small btn-xs text-muted" style="margin-left: 30px;color:gray" ng-click="skipToNext();W.nextFunction(widget,customer)">Maybe later</button>
+        </div>
+        <!--   <formly-form model="widget.components.emailSubscription.values" fields="emailFields"></formly-form>
+                <center>
+                    <div email-connector provider="{{widget.components.emailSubscription.values.provider}}" email-config="widget.components.emailSubscription.values" email-fields="emailFields"></div>
+                </center> -->
+    </div>
+    <div class="col-xs-6 col-md-6 yel-component-form" style="margin-left: 350px" ng-show="showEmail">
+        <div class="">
+            <div class="">
+                <formly-form model="widget.components.welcomeEmail.values" fields="welcomeEmailFields" form="autoResponseForm"></formly-form>
+                <div style="margin-top:20px" ng-show="widget.components.welcomeEmail.values.sendWelcomeEmail">
+                    <trix-editor angular-trix ng-model="widget.components.welcomeEmail.values.welcomeEmail" ng-disabled="widget.components.welcomeEmail.values.sendWelcomeEmail" trix-focus="emailFocussed()"></trix-editor>
+                    <ul>
+                        <li>PS: keep your welcome email short and sweet</li>
+                        <li>Use [name] to refer to subscriber's name</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="btn btn-primary pull-left" ng-disabled="autoResponseForm.$invalid" ng-click="W.nextFunction(widget,customer)">
+            Next
+        </div>
+        <!--
+        valid - {{autoResponseForm.$valid}}
+      -->
+    </div>
+</div>

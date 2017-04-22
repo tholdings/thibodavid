@@ -1,0 +1,78 @@
+<div class="row" ng-init="initialize(); C.createNewEvent('d_affiliate_interested','')">
+    <!--show this if the website doesnt have an affiliate account-->
+    <div class="yel-affiliate-wrapper yel-affiliate-registration col-md-10 col-md-offset-1" ng-hide="affiliateCode">
+        <div class="yel-prm-heading">Like Yeloni?</div>
+        <div>Join our affiliate programme and earn money through referrals</div>
+        <div class="yel-aff-form-wrapper">
+            <form name="affiliateForm" novalidate ng-submit="registerNewAffiliate(affiliate)">
+                <div class="yel-aff-form-elem">
+                    <label>
+                        <input type="radio" name="yel-aff-type" ng-model="affiliate.type" value="blog"> I have a Blog / Website</label>&nbsp;&nbsp;&nbsp;
+                    <label>
+                        <input type="radio" name="yel-aff-type"  ng-model="affiliate.type" value="agency"> I am a Freelancer / Agency</label>
+                </div>
+                <div class="yel-aff-form-elem">
+                    <label for="yel-aff-email">Payouts are made using Paypal.
+                        <br>Please enter your Paypal email address *</label>
+                    <div>
+                        <input type="email" id="yel-aff-email" name="email" placeholder="paypal email address" ng-model="affiliate.email" required>
+                    </div>
+                    <div>
+                        <p class="yel-error-msg" ng-show="affiliateForm.email.$invalid && !affiliateForm.email.$pristine">enter a valid email address</p>
+                    </div>
+                </div>
+                <div class="yel-aff-form-elem">
+                    <label for="yel-aff-name">Your Name *</label>
+                    <div>
+                        <input type="text" id="yel-aff-name" placeholder="your name" ng-model="affiliate.name" name="name" ng-minlength="3">
+                    </div>
+                    <div>
+                        <p class="yel-error-msg" ng-show="affiliateForm.name.$invalid && !affiliateForm.name.$pristine">enter a valid name</p>
+                    </div>
+                </div>
+                <div class="yel-aff-form-elem">
+                    <label for="yel-aff-website">Your Website</label>
+                    <div>
+                        <input type="url" id="yel-aff-website" placeholder="http://www.yourwebsite.com" ng-model="affiliate.website" name="url">
+                    </div>
+                    <div>
+                        <p class="yel-error-msg" ng-show="affiliateForm.url.$invalid && !affiliateForm.url.$pristine">please enter a ful url. Eg: http://www.websitename.com</p>
+                    </div>
+                </div>
+                <div class="yel-aff-form-elem">
+                    <button type="submit" class="btn btn-primary" ng-disabled="affiliateForm.$invalid" style="width:200px">Join</button>
+                </div>
+                <div class="yel-muted">You earn 10% from every referred premium subscription.
+                    <br>
+                    <!-- <a href="">Details here</a></div> -->
+                    We will email you after every purchase.
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--show this if the website already has an affiliate account-->
+    <div class="yel-affiliate-wrapper yel-affiliate-details col-md-10 col-md-offset-1" ng-show="affiliateCode">
+        <div class="yel-prm-heading">Welcome!</div>
+        <div>Here are your affiliate details.<br>
+        	<!-- View your <a href="#" target="_blank">dashboard here</a> -->
+        </div>
+        <div class="yel-aff-details-wrapper">
+            <div class="col-xs-8 yel-aff-details">
+                <div>Your affiliate link</div>
+                <div class="yel-large">http://yeloni.com/download.html?ref={{affiliateCode}}</div>
+            </div>
+            <div class="col-xs-4 yel-aff-details yel-aff-details-center">
+                <div>Your referral code</div>
+                <div class="yel-large">{{affiliateCode}}</div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="yel-aff-form-elem">
+            <label>
+                <input type="checkbox" ng-model="checkBoxEnableLink" ng-click="affiliateClicked()"> Enable 'Powered by Yeloni' on all widgets</label>
+        </div>
+        <!-- <div class="yel-aff-form-elem">
+			<div class="yel-aff-form-submit">Save Changes</div>
+		</div> -->
+    </div>
+</div>

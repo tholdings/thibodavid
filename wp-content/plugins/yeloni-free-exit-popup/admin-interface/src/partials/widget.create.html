@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-6" style="text-align:left; margin-top:10px; margin-bottom:10px">
+        <div>
+            <formly-form fields="configFields.what" model="widget.configuration">
+            </formly-form>
+        </div>
+        <div style="margin-left:20px" ng-hide="widget.configuration.what.register || widget.configuration.what.existing_account">
+            What you get
+            <ul style="margin-left:20px">
+                <li type="square">
+                    Daily usage statistics of your popups
+                </li>
+                <li type="square">
+                    Save your settings on free cloud storage to restore in case of data loss
+                </li>
+            </ul>
+        </div>
+
+
+        <div style="margin-left:20px" ng-show="widget.configuration.what.register">
+            <formly-form fields="configFields.account" model="customer">
+            </formly-form>
+        </div>
+        <div>
+            <button class="btn btn-block yel-button-green" ng-disabled="!widget.configuration.what.name || widget.configuration.what.name.length < 3" ng-click="createWidget(widget, customer)" ng-hide="creating">Create</button>
+            <button class="btn btn-block yel-button-green" disabled ng-show="creating">Creating..</button>
+        </div>
+    </div>
+    <div class="col-md-8">&nbsp;</div>
+</div>

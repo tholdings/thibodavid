@@ -1,0 +1,11 @@
+{
+    "scripts": [],
+    "styles": [{
+        "base": "/dist",
+        "items": ["admin.min"]
+    }],
+    "directjs": ["/common/loader","/admin-interface/dist/admin.min","/wordpress/admin-wordpress"],
+
+    "server": "https://theme.autience.com",
+    "static": "https://theme.autience.com"
+}

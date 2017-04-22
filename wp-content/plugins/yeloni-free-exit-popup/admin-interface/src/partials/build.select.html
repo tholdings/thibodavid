@@ -1,0 +1,52 @@
+<div ng-init="W.current.state = 'select';hide_blank=false; goalSelected = {}; layoutSelected={};C.createNewEvent('d_themes_displayed','')">
+    <!--C.createNewEvent('d_themes_displayed','')-->
+    <!--filter start-->
+    <div class="yel-select-filter">
+
+        <div class="yel-select-box">
+            <div>
+                <b>Category:</b>
+                <label ng-repeat="goal in categoryOrder" ng-init="goalSelected[goal] = true">
+                    <input type="checkbox"
+                    ng-model="goalSelected[goal]">
+                    {{goalDetails[goal].title}}
+                </label>
+            </div>
+        </div>
+
+        <div class="yel-select-box-layout">
+            <div>
+                <b>Layout:</b>
+                <label ng-repeat="(layout,obj) in placementTypes" ng-init="layoutSelected[layout] = true" data-toggle="tooltip" title="{{placementTypes[layout].tooltip}}">
+                    <input type="checkbox"
+                    ng-model="layoutSelected[layout]">
+                    {{placementTypes[layout].title}}
+                </label>
+            </div>
+        </div>
+
+        <div style="clear:both"></div>
+    </div>
+    <!--filter end-->
+    <!--
+    <json-formatter json="themesInPlacement"></json-formatter>
+  -->
+    <div ng-repeat="category in categoryOrder " class="yel-theme-type-wrapper ">
+        <div class="yel-wrapper-title2 ">
+            {{goalDetails[category].callToAction}}
+        </div>
+        <div style="clear:both "></div>
+
+        <div ng-repeat="(theme_key,theme) in R.themes" class="yel-popup-layout-wrapper yel-popup-thumbmail-{{theme.widgettype}} " ng-click="selectTheme(theme.label, theme)" ng-show="theme.categories.indexOf(category) >=0">
+
+            <div class="yel-popup-dp ">
+                <img ng-src="{{R.staticPath}}/themes/{{theme.label}}/{{theme.label}}-screenshot.jpg ">
+            </div>
+
+            <div class="yel-popup-name ">{{theme.title}}</div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,33 @@
+<div ng-if="R.setup_initialized" ng-hide="R.readyToSave" class="yel-tabs-holder">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs yel-select-tabs">
+        <li class="active" ng-show="SS.widgets.length > 0">
+            <a href="#/list"><span class="glyphicon glyphicon-arrow-left"></span></a>
+        </li>
+        <li ng-show="mode == 'create'">
+            <a ng-show="SS.widgets.length > 0">Create a new widget:</a>
+            <a ng-hide="SS.widgets.length > 0">Create your first widget:</a>
+        </li>
+        <li ng-show="mode == 'edit'">
+            <a>Editing '{{widget.configuration.what.name}}':</a>
+        </li>
+        <li ng-class="{'active':S.includes('build.'+sref)}" ng-repeat="(sref, details) in W.states" ng-show="W.compute(W.states[sref],mode,widget)">
+            <a aria-controls="selectTheme" ui-sref="build.{{sref}}">
+                <span ng-show="mode == 'create'">{{$index + 1}}. </span>{{details.tabTitle}}
+            </a>
+        </li>
+        <button class="btn btn-primary pull-right btn-disabled" ng-disabled="disableSave()" ng-show="W.states[W.current.state].title && W.compute(W.states[W.current.state],'show') && !W.current.working" ng-click="W.nextFunction(widget,customer)">
+            <span>Next: {{W.compute(W.states[W.current.state],'title',widget)}} &#8594</span>
+        </button>
+        <button class="btn btn-primary pull-right disabled" style="margin-right:50px" ng-show="W.current.working">
+            <span>Saving.. &#8594</span>
+        </button>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content" style="background-color:white">
+        <div class="tab-pane active yel-tab-content-wrapper" ui-view></div>
+    </div>
+</div>
+<!--
+<json-formatter json="SS"></json-formatter>
+-->

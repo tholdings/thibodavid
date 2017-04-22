@@ -1,0 +1,55 @@
+<!--not used-->
+<div class="yel-signup-wrapper">
+    <div>
+        <div class="row">
+            <form name="form" class="css-form" novalidate>
+                <div class="yel-prm-heading">Let's create an account for you.</div>
+                <div class="yel-sup-subheading">Please fill your details and click SignUp</div>
+                <div class="yel-signup-form-wrapper">
+                    
+                    <table>
+                        <tr>
+                            <td>
+                                <div>First Name</div>
+                                <input type="text" ng-model="auth.first_name" placeholder="first name" ng-disabled="registering" name="fName" required="" />
+                                <div ng-show="form.$submitted || form.fName.$touched">
+                                    <div ng-show="form.fName.$error.required">First Name required</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>Last Name</div>
+                                <input ng-model="auth.last_name" placeholder="last name" ng-disabled="registering">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div>Email</div>
+                                    <input ng-model="auth.email" type="email" placeholder="email address" ng-disabled="registering" name="uEmail" required="" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" />
+                                <div ng-show="form.$submitted || form.uEmail.$touched">
+                                    <span ng-show="form.uEmail.$error.required">Email is required</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div>Create a New Password</div>
+                                <input type="password" ng-model="auth.password" type="password" placeholder="password" ng-disabled="registering" name="password" required="" ng-minlength="5" />
+                                <div ng-show="form.$submitted || form.password.$touched">
+                                    <div ng-show="form.password.$error.required">Password is required</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button class="btn btn-primary yel-button-green" ng-click="signup(auth)" ng-class="{'disabled':registering}" ng-disabled="form.$invalid"><i class="glyphicon glyphicon-user"></i> Sign Up</button>
+                            <div class="yel-error-text">
+                                Error
+                            </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>   
+            </form>
+        </div>
+    </div>
+</div>

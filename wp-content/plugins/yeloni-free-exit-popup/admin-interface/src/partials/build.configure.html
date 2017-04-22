@@ -1,0 +1,56 @@
+<div ng-init="W.current.state = 'configure';C.createNewEvent('d_configuration_displayed')" class="row">
+    <!--popup design-->
+    <!-- C.createNewEvent('d_configuration_displayed') -->
+    <div>
+        <div class="yel-conf-heading">Smart settings for powerful widgets</div>
+        <div class="yel-conf-sub">Select a section to configure:</div>
+        <div class="yel-conf-accordian">
+            <accordion close-others="oneAtATime">
+                <accordion-group ng-repeat="(section, title) in sections">
+                    <accordion-heading>
+                        <span ng-class="{'yel-bold':isOpen[tag]}">{{title}}</span>
+                        <!-- <i ng-show="(now.editing==section)" class="pull-right glyphicon glyphicon-chevron-right"></i> -->
+                    </accordion-heading>
+                    <div>
+                        <formly-form model="R.widget.configuration" fields="configFields[section]"></formly-form>
+
+                        <div ng-show="section=='whom'">
+                            <!-- for limit by referrer hide -->
+                            <div ng-show="R.widget.configuration.whom.limitByReferrerSetting == 'hide'">
+                                <tags-input ng-model="R.widget.configuration.whom.limitByReferrer_array" placeholder="Enter url whose referrers are **not to be** shown the popup" min-length="1" key-property="text">
+                                </tags-input>
+                            </div>
+                            <!-- for limit by referrer show -->
+                            <div ng-show="R.widget.configuration.whom.limitByReferrerSetting == 'show'">
+                                <tags-input ng-model="R.widget.configuration.whom.limitByReferrer_array" placeholder="Enter url whose referrers are **to be** shown the popup" min-length="1" key-property="text">
+                                </tags-input>
+                            </div>
+                        </div>
+
+                        <div ng-show="section=='where'">
+                            <!-- for hide -->
+                            <div ng-show="R.widget.configuration.where.showOrHide == 'hide' &&  R.widget.configuration.where.hideOn.hideselector == 'url' ">
+                                <tags-input ng-model="R.widget.configuration.where.hide_contain_tags" placeholder="Enter a text which the url should contain and press enter/return" min-length="1" key-property="text" on-tag-added="clearValues('hide_contain_tags')">
+                                </tags-input>
+                            </div>
+                            <!-- for Show -->
+                            <div ng-show="R.widget.configuration.where.showOrHide == 'show' &&  R.widget.configuration.where.specific.selector == 'url'">
+                                <tags-input ng-model="R.widget.configuration.where.show_contain_tags" placeholder="Enter a text which the url should contain and press enter/return" min-length="1" key-property="text" on-tag-added="clearValues('show_contain_tags')" >
+                                </tags-input>
+                            </div>
+                        </div>
+                    </div>
+                </accordion-group>
+                <accordion-group ng-show="W.isEmailPopup(R.widget)">
+                    <accordion-heading>
+                        <span ng-class="{'yel-bold':isOpen[tag]}">Email Provider Setup</span>
+                        <!-- <i ng-show="(now.editing==section)" class="pull-right glyphicon glyphicon-chevron-right"></i> -->
+                    </accordion-heading>
+                    <formly-form model="R.widget.components.emailSubscription.values" fields="emailFields"></formly-form>
+                    <div email-connector provider="{{R.widget.components.emailSubscription.values.provider}}" email-config="R.widget.components.emailSubscription.values" email-fields="emailFields"></div>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="yel-conf-addons" id="yel-conf-addons" ng-click='viewAddonsClick()'>View Premium Addons</div>
+    </div>
+</div>

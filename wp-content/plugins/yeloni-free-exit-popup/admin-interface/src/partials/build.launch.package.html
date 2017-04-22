@@ -1,0 +1,112 @@
+<div class="row" ng-init="W.current.state = 'select'">
+    <div class="yel-lite-summary-features col-md-12" ng-hide="yelShowPlans">
+        <div>
+            Popup will be show up on <strong>all pages</strong> when your visitors are about to <strong>leave your website</strong>
+            <br/><u ng-click="yelShowPlans=true">See other default settings</u>
+            <br/>
+            <div>
+                <button type="button" class="btn btn-primary" ng-hide="launching" ng-click="launch(R.widget)">
+                    Continue with Lite Plan (Free)
+                </button>
+                <button type="button" class="btn" ng-show="launching">Hold on...</button>
+            </div>
+            <div class="yel-show-premium-features">
+                <p ng-click="yelShowPlans=true">I need more options. Show me the premium features.</p>
+            </div>
+        </div>
+    </div>
+    <div class="yel-show-features col-md-12" ng-show="yelShowPlans">
+        <table class="table yel-prem-table table-responsive">
+            <tr>
+                <th></th>
+                <th class="yel-center">Lite (Free) </th>
+                <th class="yel-center">Premium (10$/month) </th>
+            </tr>
+            <tr class="yel-center">
+                <td>
+                    <!--<small class="text-muted">Select a suitable Version</small>--></td>
+                <td>
+                    <button type="button" class="btn btn-default" ng-hide="launching" ng-click="launch(R.widget)">
+                        Continue with Basic Features
+                    </button>
+                    <center><small class="text-muted">(You are currently using this)</small></center>
+                    <button type="button" class="btn" ng-show="launching">Hold on...</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-success" ng-click="U.upgrade(R.packages.smartUX);">Try the Premium Features
+                        <i class="glyphicon glyphicon-play"></i></button>
+                    <center><small class="text-muted">(Free 14 Day Trial)</small></center>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Popup Configuration Options<i class="glyphicon glyphicon-arrow-down"></i></strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr style="padding:20px">
+                <td>Supported Screens</td>
+                <td>Desktops</td>
+                <td>Mobiles, Tablets and Desktops</td>
+            </tr>
+            <tr>
+                <td>How many can I make?</td>
+                <td>One</td>
+                <td>Unlimited</td>
+            </tr>
+            <tr>
+                <td>When does it show up?</td>
+                <td>On Exit Intent
+                    <br><small>When a visitor moves their mouse to the close button on the browser tab</small></td>
+                <td>
+                    <ul>
+                        <li>&bull; Exit Intent, Link Click, </li>
+                        <li>&bull; Page Load, Delay</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>How often does it show up?</td>
+                <td>Once for each Visitor</td>
+                <td>
+                    <ul>
+                        <li>&bull; Once per Visitor or Session</li>
+                        <li>&bull; Goal Based</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Which Pages does it show up?</td>
+                <td>All Pages of your Website</td>
+                <td>
+                    <ul>
+                        <li>&bull; Select by Title, Category</li>
+                        <li>&bull; Home Page, Checkout Page</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Who is this Suitable for?</td>
+                <td>
+                    <ul>
+                        <li>&bull; Students</li>
+                        <li>&bull; Non-Profits</li>
+                        <li>&bull; Beginner Blogs</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>&bull; Business Websites</li>
+                        <li>&bull; E-Commerce Websites</li>
+                        <li>&bull; Media Websites</li>
+                        <li>&bull; Coaches / Trainers</li>
+                        <li>&bull; Professional Bloggers</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <div class="pull-right">
+            <span><i>Get 2 months free on an Annual purchase</i></span>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+</div>

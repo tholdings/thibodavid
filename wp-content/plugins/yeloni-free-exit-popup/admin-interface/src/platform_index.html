@@ -1,0 +1,42 @@
+<script>
+    var autience_initiated_at = Date.now()
+</script>
+<div id="yetience-loader" class="cssload-wraper">
+    <div class="cssload-dots"></div>
+</div>
+<div class="" ng-controller="MainController">
+    <div id="yetience-content" style="display:none">
+
+        <div class="yel-newuser-menubar" ng-hide="onStartPage()" id="yel-newuser-menubar">
+            <div class="menubar-title"><a href="#" id="yel-menubar-title">{{R.Y.title}} </a></div>
+            <!--<div class="menubar-title" ng-hide="premiumText"><a href="#">{{R.Y.title}}</a></div>
+            <div class="menubar-title" ng-hide="premiumText"><a href="#">{{R.Y.title}} ({{R.packages[S.package_id].name}})</a></div>-->
+
+            <div class="menubar-right-contents">
+                <div><a href="#" id="yel-menubar-widgets">Widgets</a></div>
+                <div id="yel-menubar-extensions" ng-click="viewExtensions(); C.createNewEvent('d_seen_premium_menubar')">Premium Extensions</div>
+                <div><a href="#/affiliate" id="yel-menubar-affiliate">Affiliate</a></div>
+                <!--<div><a href="http://yeloni.com/contact.php" target="_blank">Contact Support</a></div>-->
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+        <div ui-view></div>
+    </div>
+<!-- Begin Helprace -->    
+<script src="//d1culzimi74ed4.cloudfront.net/js/feedback/feedback.js"></script>
+<script>
+ChdFeedbackWidget.init({
+url: "//yeloni.helprace.com/chd-widgets/feedback",
+assetsUrl: "//d1culzimi74ed4.cloudfront.net/",
+feedbackType: "tab",
+tabTitle: "Feedback & Support",
+tabPosition: "bottom-right",
+tabBgColor: "#78a300",
+tabTextColor: "#ffffff",
+tabAction: "false",
+website_domain: window.location.hostname
+});
+</script>
+<!-- End Helprace -->
+</div>

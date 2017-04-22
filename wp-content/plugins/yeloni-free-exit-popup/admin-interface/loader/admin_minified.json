@@ -1,0 +1,10 @@
+{
+    "scripts": [],
+    "styles": [{
+        "base": "/dist",
+        "items": ["admin.min"]
+    }],
+    "directjs": ["/common/loader","/admin-interface/dist/admin.min","/wordpress/admin-wordpress"],
+    "server": "http://localhost:3001",
+    "static": "http://localhost:3001"
+}

@@ -1,0 +1,120 @@
+<!-- this page shows a list of popups -->
+<div class="container" style="margin-top:20px;" ng-if="R.setup_initialized" ng-hide="R.readyToSave">
+
+
+    <div class="col-md-11 yel-premium-features-on-list yel-no-left" id="yel-popup-feedback-inpage" ng-show="yelShowFeedback()">
+        <div class="yel-popup-feedback-inpage">
+            <div class="yel-popup-feedback-inpage-close" ng-click="hide_inpage_popup_feedback(feedback)">X</div>
+            <div>
+                <b><span class="glyphicon glyphicon-question-sign"></span> Does your new widget appear as expected?&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                <hr/>
+                <formly-form fields="configFields.feedback" model="feedback"></formly-form>
+                <div ng-show="feedbackComplete(feedback)">
+                    <button type="button" class="btn btn-primary" style="margin-top:5px" ng-click="sendFeedback(feedback)">Submit</button>
+                </div>
+            </div>
+            <div class="popup-feedback-questions"></div>
+        </div>
+    </div>
+
+    <!-- DONT DELETE
+    <div class="col-md-10 col-md-offset-1 yel-premium-features-on-list">
+        <div ng-click="yelShowAffiliate()" class="yel-show-premium-list" style="font-weight:normal; color:#585858;">
+            Agency or Freelancer? Join our Affiliate Programme<br>
+        </div>
+    </div>
+    -->
+    <div class="col-md-11">
+        <div class="yel-inline">
+            <div class="panel panel-default" ng-repeat="widget in list.widgets track by $index">
+                <div class="panel-heading">
+                    <span ng-if="!widget.configuration.what.title">
+                    Widget {{$index + 1}}
+                  </span>
+                    <span ng-if="widget.configuration.what.title">
+                    {{widget.configuration.what.title}}
+                  </span>
+                </div>
+                <div class="panel-body">
+                    <div>
+
+                        <div class="yel-inline yel-image-block">
+                            <img ng-src="{{R.staticPath}}/themes/{{widget.theme}}/{{widget.theme}}-screenshot.jpg">
+                        </div>
+                        <div class="yel-inline yel-right-box">
+                            <div class="yel-actions text-muted" style="cursor:default;">
+                                <div class="yel-card-enable">
+                                    <div>
+                                        <input type="checkbox" ng-model="widget.configuration.what.enable" ng-change="changeEnable(widget.configuration.what.enable, widget.configuration.what.name)">
+                                    </div>
+                                    <div>&nbsp;Active</div>
+                                </div>
+                            </div>
+                            <div class="yel-actions" style="cursor:pointer" ng-click="emailListModal($index)" ng-show="isEmailTheme($index)">
+                                <span class="glyphicon glyphicon-envelope text-muted"></span><span class="text-muted"> View Email List</span>
+                            </div>
+                            <div class="yel-actions text-muted">
+                                <a ng-href="#/edit/build/design?index={{$index}}">
+                                    <span class="glyphicon glyphicon-pencil text-muted"></span><span class="text-muted"> Redesign</span>
+                                </a>
+                            </div>
+                            <div class="yel-actions" ng-click="configure($index)" style="cursor:pointer">
+                                <span class="glyphicon glyphicon-cog text-muted"></span><span class="text-muted"> Configure</span>
+                            </div>
+                            <div class="yel-actions" style="border-bottom:none;cursor:pointer" ng-click="removeWidget($index)"><span class="glyphicon glyphicon-remove text-muted"></span><span class="text-muted"> Delete</span></div>
+                        </div>
+                        <div style="clear:both"></div>
+
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+
+            </div>
+
+            <center>
+                <button class="btn btn-default btn-block" ng-click="addNewWidget()"><span class="glyphicon glyphicon-plus"></span> Add another Widget</button>
+                <div style="clear:both"></div>
+            </center>
+        </div>
+        <div class="yel-inline pull-right">
+            <div class="yel-card-btm" ng-show="!S.hasAllFeatures">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Addons to increase your Conversions</div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr ng-repeat="feature in R.features | orderBy:'priority'" ng-init="status = FS[feature.label](widget, feature);mode='pitch'" ng-show="!S.hasFeature(feature.label)" ng-class="{'bg-primary':(feature.label=='premiumSubscription')}">
+
+                                    <td width="350"><i ng-class="status.icon"></i>&nbsp;{{status.upgrade}}</td>
+
+                                    <td>
+                                        <a class="btn btn-xs btn-default btn-block" ng-hide="mode == 'pay'" ng-click="mode='pay';C.createNewEvent('d_seen_premium_'+feature.label);C.createNewEvent('d_seen_premium')">
+                                            View Pricing
+                                        </a>
+                                        <div class="yel-list-payments" ng-show="mode == 'pay'">
+                                            <div class="pull-right" ng-click="mode='pitch'" style="cursor:pointer">X</div>
+                                            <pitch-pay feature=feature></pitch-pay>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+
+
+</div>
+
+<div style="clear:both"></div>
+
+<!--
+<json-formatter json="S.setup().widgets"></json-formatter>

@@ -1,0 +1,25 @@
+<div class="yel-starter-wrapper" ng-init="show_premium = false; W.current.state = 'goals'">
+	<center>
+        <div class="yel-prm-heading">Choose a Business Goal</div>
+        <div class="yel-sup-subheading">
+        	What do you want your visitors to do?
+        </div>
+        <div class="yel-goal-wrapper grid-container">
+        	<div class="yel-goal-box grid-35 push-15" 
+        				ng-repeat="goal in R.goals"
+        				ng-click="selectGoal(goal)">
+                <div class="yel-goal-wrapper2">
+
+                    <div class="yel-goal-icon">
+                    <img ng-src="{{R.basePath}}/images/goal-icons/{{goal.icon}}"/>
+                    </div>
+                    <div class="yel-goal-title">{{goal.name}}</div>
+                    <div class="yel-goal-desc">{{goal.tagline}}</div>
+
+                </div>
+        		
+        	</div>
+        	<div style="clear:both"></div>
+        </div>
+    </center>
+</div>

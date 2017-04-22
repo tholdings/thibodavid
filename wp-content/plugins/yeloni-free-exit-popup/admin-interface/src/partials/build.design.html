@@ -1,0 +1,23 @@
+<div ng-init="W.current.state = 'design'">
+    <!--;C.createNewEvent('popup_design_displayed')-->
+    <!--popup design-->
+    <div class="row">
+        <div class="col-xs-8 col-md-8 yel-widget-design" ng-if="R.widget.theme">
+            <link id="autience-theme-style" rel='stylesheet' ng-href='{{themeBase()}}/{{R.widget.theme}}-styles.css' type='text/css' />
+            <link id="autience-common-style" rel='stylesheet' ng-href='{{commonCss()}}' type='text/css' />
+            <center>
+                <small class="text-muted">Select a section to edit it. Please refresh page if layout is skewed</small>
+            </center>
+            <div id="widget-design" bind-html-compile="widget_template"></div>
+        </div>
+        <div class="col-xs-4 col-md-4 yel-component-form">
+            <component-form></component-form>
+        </div>
+    </div>
+    <div id="hidden-email-form" style="display:none">
+    </div>
+</div>
+
+<!--
+<json-formatter json="widget"></json-formatter>
+-->
